@@ -1,0 +1,35 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  SIGSEGV (0xb) at pc=0xa40455e7, pid=14146, tid=2853178224
+#
+# Java VM: Java HotSpot(TM) Server VM (1.5.0_14-b03 mixed mode)
+# Problematic frame:
+# C  [tisim_mm_c6xxxd_ca.so+0x3675e7]  _ZNK11ProfManager8breakHitEv+0x7
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xa881e720):  JavaThread "polling thread" daemon [_thread_in_native, id=14158]
+
+siginfo:si_signo=11, si_errno=0, si_code=1, si_addr=0xa3bf829c
+
+Registers:
+EAX=0xa3af0008, EBX=0xa41a7a60, ECX=0xa3af0008, EDX=0xa41c68e0
+ESP=0xaa0feb24, EBP=0xaa0ff3d0, ESI=0xa41c68e0, EDI=0x00000002
+EIP=0xa40455e7, CR2=0xa3bf829c, EFLAGS=0x00010297
+
+Top of Stack: (sp=0xaa0feb24)
+0xaa0feb24:   a3ee1902 a3af0008 00000004 00000001
+0xaa0feb34:   00009d04 a881e720 ab8f7ff4 aa0feb60
+0xaa0feb44:   f6ea6816 a881e720 a881e7e0 aa0feb60
+0xaa0feb54:   aab97bd2 ab6cbc80 ab6cbc80 aa0feb70
+0xaa0feb64:   aab9cffe a881e7e0 ab6cbc80 aa0fecb0
+0xaa0feb74:   aabf095c 01000000 f7687acd a1072411
+0xaa0feb84:   aa0fec38 aa0fec28 00000000 a10937c0
+0xaa0feb94:   0100374e 08bf4870 00000000 0003e720 
+
+Instructions: (pc=0xa40455e7)
+0xa40455d7:   90 90 8d b4 26 00 00 00 00 55 89 e5 8b 45 08 5d
+0xa40455e7:   0f bf 80 94 82 10 00 c3 90 55 31 d2 89 e5 56 83 
+
