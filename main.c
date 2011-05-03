@@ -6,8 +6,8 @@
 #include "LMS.h"
 #include "file_read.h"
 
-#define FAR_FILENAME "/home/lexa/develop/matlab/g165/filtered_noise_10.dat"
-#define NEAR_FILENAME "/home/lexa/develop/matlab/g165/echo_10_128.dat"
+#define FAR_FILENAME "filtered_noise_10.dat"
+#define NEAR_FILENAME "echo_10_128.dat"
 
 
 #define SAMPLE_LEN 40000
@@ -21,7 +21,7 @@ int main (void)
 
 //	out_file = open_file("/home/lexa/out.algo", "w");
 
-	LMS* l = create_LMS(140);
+	LMS* l = create_LMS(140);  // выделяет память ~850байт
 
 //	float eps[SAMPLE_LEN] = {0};
 
@@ -31,7 +31,7 @@ int main (void)
 	float eps;
 	for (i=0; i<SAMPLE_LEN; ++i)
 	{
-		if ((fread(&far_s, sizeof(far_s), 1, far_f) < 1) || (fread(&near_s, sizeof(near_s), 1, near_f) < 1))
+		if ((fread(&far_s, sizeof(far_s), 1, far_f) < 1) || (fread(&near_s, sizeof(near_s), 1, near_f) < 1)) // выделяет память ~250байт
 		 	break;
  
 		eps = make_LMS(l, far_s, near_s);

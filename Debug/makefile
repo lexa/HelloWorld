@@ -102,7 +102,7 @@ all: HelloWorld.out
 HelloWorld.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C6000 Linker'
-	"/home/lexa/CCS/ccsv5/tools/compiler/c6000/bin/cl6x" -mv6700 -g --diag_warning=225 --abi=coffabi -z -m"HelloWorld.map"  --warn_sections -i"/home/lexa/CCS/ccsv5/tools/compiler/c6000/lib" -i"/home/lexa/CCS/ccsv5/tools/compiler/c6000/include"  --reread_libs --rom_model -o "HelloWorld.out" $(ORDERED_OBJS)
+	"/home/lexa/CCS/ccsv5/tools/compiler/c6000/bin/cl6x" -mv6700 -g --diag_warning=225 --abi=coffabi -z -m"HelloWorld.map"  --heap_size=0x20000 --warn_sections -i"/home/lexa/CCS/ccsv5/tools/compiler/c6000/lib" -i"/home/lexa/CCS/ccsv5/tools/compiler/c6000/include"  --reread_libs --rom_model -o "HelloWorld.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

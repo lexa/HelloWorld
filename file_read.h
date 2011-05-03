@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#include "global.h"
 
 FILE*
 open_file(const char *filename, const char *mode)
@@ -20,7 +21,7 @@ open_file(const char *filename, const char *mode)
 	if (NULL == (f = fopen(filename, mode)))
 	{
 		fprintf(stderr, "can't open file %s", filename);
-		return NULL;
+		ERREXIT;
 	}
 	return f;
 }
@@ -31,7 +32,7 @@ close_file(FILE* f)
 	if (0 != fclose(f))
 	{
 		fprintf(stderr, "error on closing file");
-		return 0;
+		ERREXIT ;
 	}
 	return 1;
 }
@@ -43,7 +44,7 @@ read_file (FILE *f, size_t len)
 	if (NULL == (data = malloc(sizeof(int16_t) * len)))
 	{
 		fprintf(stderr, "can't allocate memory %lu bytes", sizeof(int16_t) * len );
-		return NULL;
+		ERREXIT ;
 	}
 	if (len != fread (data, 2, len, f))
 	{
